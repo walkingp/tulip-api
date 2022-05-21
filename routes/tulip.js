@@ -52,7 +52,7 @@ router.get("/callback", async function (req, res) {
   const data = fs.readFileSync(filePath);
   const html = data
     .toString()
-    .replace("$$$$", JSON.stringify(tulip_token).replace(/"/g, "'"));
+    .replace(/\$\$\$\$/g, JSON.stringify(tulip_token).replace(/"/g, "'"));
   res.set("Content-Type", "text/html");
   console.log(html);
   res.send(html);
