@@ -38,9 +38,11 @@ router.get("/callback", async function (req, res) {
   const qs = querystring.stringify(params);
   const url = `${apiUrl}/oauth2/token?${qs}`;
   const tulip_token = await rp(url);
+  console.log(tulip_token);
   const [access_token, token_type, expires_in, refresh_token] = Object.values(
     JSON.parse(tulip_token)
   );
+  console.log("access_token", access_token);
 
   await db.collection("users").doc(userId).update({
     access_token,
