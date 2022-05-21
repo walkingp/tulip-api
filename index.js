@@ -43,7 +43,7 @@ app.use("/api/v1/strava", strava);
 app.use("/api/v1/spider", spider);
 app.use("/api/v1/wechat", wechat);
 
-const server = app.listen(8081, "0.0.0.0", function () {
+const server = app.listen(80, "0.0.0.0", function () {
   const host = server.address().address;
   const port = server.address().port;
 
